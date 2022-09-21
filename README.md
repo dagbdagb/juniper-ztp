@@ -8,6 +8,8 @@ All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juni
 
 Slightly more detailed explanation:
 
+* operator connects EX2300 to power, mgmt and console
+* operator steps away
 * first boot, ZTP is enabled out of the box
 * DHCP-server provides a simplified config file *only* which 
   * disables ZTP
@@ -20,7 +22,11 @@ Slightly more detailed explanation:
   * re-enables ZTP
   * sets a custom DHCP vendor id
   * disables itself
-* DHCP catches custom DHCP vendor id and provides our default conig for deployment
+* DHCP catches custom DHCP vendor id and provides our default config for deployment
+* device applies config
+* operator verifies that device runs required os version and config
+* operator shuts down device and ships it for deployment
+
 
 
 Prerequisites:
