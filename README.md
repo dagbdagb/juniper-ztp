@@ -54,10 +54,10 @@ Usage:
 Troubleshooting:
 
 * run dhcpd in the foreground with flag -d. Like this:
-    /usr/sbin/dhcpd -4 -cf /etc/dhcp/dhcpd.conf -d
+```dhcp-server # /usr/sbin/dhcpd -4 -cf /etc/dhcp/dhcpd.conf -d```
 * the slax script provides some output in /var/log/op*
 * the slax script can be run manually:
-    # run op url http:/server/path/to/scriptname
+```switch # run op url http:/server/path/to/scriptname```
 * connect to the switch console
 * watch the httpd log file
-    # tail -f /var/log/httpd/access_log
+ ```httpd # tail -f /var/log/httpd/access_log```
