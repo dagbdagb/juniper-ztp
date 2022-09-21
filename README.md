@@ -10,12 +10,13 @@ Slightly more detailed explanation:
 
 * operator connects EX2300 to power, mgmt and console
 * operator steps away
-* first boot, ZTP is enabled out of the box
-* DHCP-server provides a simplified config file *only* which 
-  * disables ZTP
-  * loads and runs a slax script
-    * slax script cleans up space
-    * slax script installs our preferred OS version
+* first boot:
+  * ZTP is enabled out of the box
+  * DHCP-server provides a simplified config file *only* which 
+    * disables ZTP
+    * loads and runs a slax script
+      * slax script cleans up space
+      * slax script installs our preferred OS version
 * device boots new OS
 * slax script runs again and
   * finds everything ok
