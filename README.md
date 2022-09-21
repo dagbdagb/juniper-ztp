@@ -32,9 +32,11 @@ Slightly more detailed explanation:
 
 Prerequisites:
 
-- isc-dhcp-server
-- vsftpd
+* ISC DHCP server, with custom dhcpd.conf
+* httpd, hosting:
+  * slax enabled config
+  * slax script
+  * preferred deployment config
+  * preferred OS versions to be installed
 
-The following JUNOS software will need to be downloaded and placed in /var/tmp/ztp/code/:
 
-- EX2300/3400: 18.2R3-S2.9
