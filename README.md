@@ -3,7 +3,24 @@ The way it is done, is to use the out-of-box ZTP functionality to load a custom 
 
 This config will in turn enable a bit of slax/op-scripting, which does the cleanup necessary for installing Junos. After the install, the script runs again to check if the correct Junos version is installed. If this is the case, the script disables itself.
 
-All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juniper-ztp), who deserves all the glory. This fork is primarily for my own purposes and to add more documentation/explanation.
+All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juniper-ztp), who deserves all the glory. This fork is primarily for my own purposes and to add a bit of customization/documentation/explanation.
+
+
+Slightly more detailed explanation:
+
+* first boot, ZTP is enabled out of the box
+* DHCP-server provides a simplified config file *only* which 
+  * disables ZTP
+  * loads and runs a slax script
+    * slax script cleans up space
+    * slax script installs our preferred OS version
+* device boots new OS
+* slax script runs again and
+  * finds everything ok
+  * re-enables ZTP
+  * sets a custom DHCP vendor id
+  * disables itself
+* DHCP catches custom DHCP vendor id and provides our default conig for deployment
 
 
 Prerequisites:
