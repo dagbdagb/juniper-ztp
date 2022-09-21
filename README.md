@@ -8,11 +8,11 @@ All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juni
 
 Slightly more detailed explanation:
 
-* operator connects EX2300 to power, mgmt and console
+* operator connects EX2300 to power, mgmt (me0) and console
 * operator steps away
 * first boot:
   * ZTP is enabled out of the box
-  * DHCP-server provides a simplified config file *only* which 
+  * DHCP-server catches default DHCP vendor id, and provides a simplified config file *only* which 
     * disables ZTP
     * loads and runs a slax script
       * slax script cleans up space
@@ -21,9 +21,9 @@ Slightly more detailed explanation:
 * slax script runs again and
   * finds everything ok
   * re-enables ZTP
-  * sets a custom DHCP vendor id
-  * disables itself
-* DHCP catches custom DHCP vendor id and provides our default config for deployment
+  * sets a custom DHCP vendor id on interface me0
+  * disables execution of slax script
+* DHCP catches custom DHCP vendor id and provides our default config *only* for deployment
 * device applies config
 * operator verifies that device runs required os version and config
 * operator shuts down device and ships it for deployment
