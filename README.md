@@ -1,7 +1,7 @@
 The purpose of this repo is to enable ZTP-installing Junos on EX2300/EX3400, even when installation fails due to lack of space.
 The way it is done, is to use the out-of-box ZTP functionality to load a custom *configuration* file *only*. (I.e. not a Junos upgrade.) 
 
-This config will in turn enable a bit of slax/op-scripting, which does the cleanup necessary for installing Junos. After the install, the script runs again to check if the correct Junos version is installed. If this is the case, the script disables itself.
+This config will in turn enable a bit of slax/op-scripting, which does the cleanup necessary for automatically installing Junos. After the install, the script runs again to check if the correct Junos version is installed. If this is the case, the script disables itself.
 
 All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juniper-ztp), who deserves all the glory. This fork is primarily for my own purposes and to add a bit of customization/documentation/explanation.
 
@@ -49,3 +49,15 @@ Usage:
 * make sure ztp.slax, config files referenced in dhcpd.conf and OS images referenced in ztp.slax all are aavailable via http
 * connect switch management port to your ZTP vlan
 * connect power to switch
+
+
+Troubleshooting:
+
+* run dhcpd in the foreground with flag -d. Like this:
+    /usr/sbin/dhcpd -4 -cf /etc/dhcp/dhcpd.conf -d
+* the slax script provides some output in /var/log/op*
+* the slax script can be run manually:
+    # run op url http:/server/path/to/scriptname
+* connect to the switch console
+* watch the httpd log file
+    # tail -f /var/log/httpd/access_log
