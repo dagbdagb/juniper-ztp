@@ -29,7 +29,7 @@ Slightly more detailed explanation:
 * operator shuts down device and ships it for deployment
 
 
-
+--
 Prerequisites:
 
 * ISC DHCP server, with custom dhcpd.conf
@@ -39,7 +39,7 @@ Prerequisites:
   * slax script
   * preferred OS versions to be installed
 
-
+--
 Usage:
 
 * create an isolated VLAN for everything ZTP
@@ -50,8 +50,10 @@ Usage:
 * connect switch management port to your ZTP vlan
 * connect power to switch
 
-
+--
 Troubleshooting:
+
+* be patient
 
 * run dhcpd in the foreground with flag -d. Like this:
 ```dhcp-server # /usr/sbin/dhcpd -4 -cf /etc/dhcp/dhcpd.conf -d```
