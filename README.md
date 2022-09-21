@@ -29,8 +29,8 @@ Slightly more detailed explanation:
 * operator shuts down device and ships it for deployment
 
 
---
-Prerequisites:
+
+##Prerequisites
 
 * ISC DHCP server, with custom dhcpd.conf
 * httpd, hosting:
@@ -39,8 +39,8 @@ Prerequisites:
   * slax script
   * preferred OS versions to be installed
 
---
-Usage:
+
+##Usage
 
 * create an isolated VLAN for everything ZTP
 * customize dhcpd.conf as you see fit
@@ -50,8 +50,8 @@ Usage:
 * connect switch management port to your ZTP vlan
 * connect power to switch
 
---
-Troubleshooting:
+
+##Troubleshooting
 
 * be patient
 
