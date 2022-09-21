@@ -3,12 +3,12 @@
 The purpose of this repo is to enable ZTP-installing Junos on EX2300/EX3400, even when installation fails due to lack of space.
 The way it is done, is to use the out-of-box ZTP functionality to load a custom *configuration* file *only*. (I.e. not a Junos upgrade.) 
 
-This config will in turn enable a bit of slax/op-scripting, which does the cleanup necessary for automatically installing Junos. After the install, the script runs again to check if the correct Junos version is installed. If this is the case, the script disables itself.
+This config will in turn enable a bit of slax/op-scripting, which does the cleanup necessary to successfully upgrade Junos. After the install completes, the script runs again to check if the correct Junos version is installed. If this is the case, the script disables itself.
 
 All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juniper-ztp), who deserves all the glory. This fork is primarily for my own purposes and to add a bit of customization/documentation/explanation.
 
 
-Slightly more detailed explanation:
+Slightly more detailed explanation below:
 
 * operator connects EX2300 to power, mgmt (me0) and console
 * operator steps away
