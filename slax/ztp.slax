@@ -1,3 +1,4 @@
+
 version 1.0;
 /* Junos standard namespaces */
 ns junos = "http://xml.juniper.net/junos/*/junos";
@@ -9,10 +10,10 @@ ns func extension = "http://exslt.org/functions";
 ns ztp = "http://xml.juniper.net/junos/ztp";
 import "/var/run/scripts/import/junos.xsl";
 
-param $ex2300 = "18.2R3-S2.9";
-param $ex3400 = "18.2R3-S2.9";
-param $ex4600 = "18.3R2.7";
-param $server = "10.0.0.1";
+param $ex2300 = "20.4R3.8";
+param $ex3400 = "20.4R3.8";
+param $ex4600 = "20.4R3.8";
+param $server = "10.255.7.254";
 param $reset="no";
 
 var $CONFIG-PREFIX = "JUNOS-";
@@ -20,9 +21,9 @@ var $REGISTER-PREFIX = "REGISTER-";
 var $VARTMP-DIR = "/var/tmp/";
 var $VARLOGMSGS-FILE = "/var/log/messages";
 var $TMP-DIR = "/tmp/";
-var $CONFIG-DIR = "ftp://" _ $server _ "/config/";
+var $CONFIG-DIR = "http://" _ $server _ "/j/config/";
 var $UPLOAD-DIR = "ftp://" _ $server _ "/uploads/";
-var $JUNOS-DIR = "ftp://" _ $server _ "/code/";
+var $JUNOS-DIR = "http://" _ $server _ "/j/";
 var $EVENT-POLICY = "staging"; /* as defined in staging.conf file */
 var $SYSLOG = "external.notice";
 
@@ -122,13 +123,31 @@ match / {
         };
 /*** Removing event options configuration ***/
         var $config-changes = {
-        <configuration> {
+            <configuration> {
                 <event-options delete="delete">;
-                <interfaces delete="delete">;
+               /***  <interfaces delete="delete">; ***/
                 <system> {
-                        <host-name> "staging-complete";
+                    <host-name> "staging-complete";
                 }
-            }
+                <chassis> {
+                    <auto-image-upgrade>;
+                }
+                <interfaces> {
+                    <interface> {
+                        <name> "me0";
+                        <unit> {
+                            <name> "0";
+                            <family> {
+                                <inet> {
+                                    <dhcp> {
+                                        <vendor-id> "staging-complete-ex2300-48";
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } 
         }
         var $load-action = "merge";
         var $conn_handle = jcs:open();
