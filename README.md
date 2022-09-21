@@ -46,7 +46,7 @@ Usage:
 * customize dhcpd.conf as you see fit
 * fire up your dhcpd with said config file
 * customize your ztp.slax file as you see fit
-* make sure ztp.slax, config files referenced in dhcpd.conf and OS images referenced in ztp.slax all are aavailable via http
+* make sure ztp.slax, config files referenced in dhcpd.conf and OS images referenced in ztp.slax all are available via http
 * connect switch management port to your ZTP vlan
 * connect power to switch
 
