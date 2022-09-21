@@ -1,3 +1,5 @@
+## ZTP upgrading Juniper EX2300 and EX3400 
+
 The purpose of this repo is to enable ZTP-installing Junos on EX2300/EX3400, even when installation fails due to lack of space.
 The way it is done, is to use the out-of-box ZTP functionality to load a custom *configuration* file *only*. (I.e. not a Junos upgrade.) 
 
@@ -30,7 +32,7 @@ Slightly more detailed explanation:
 
 
 
-##Prerequisites
+## Prerequisites
 
 * ISC DHCP server, with custom dhcpd.conf
 * httpd, hosting:
@@ -40,7 +42,7 @@ Slightly more detailed explanation:
   * preferred OS versions to be installed
 
 
-##Usage
+## Usage
 
 * create an isolated VLAN for everything ZTP
 * customize dhcpd.conf as you see fit
@@ -51,7 +53,7 @@ Slightly more detailed explanation:
 * connect power to switch
 
 
-##Troubleshooting
+## Troubleshooting
 
 * be patient
 
