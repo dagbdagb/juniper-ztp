@@ -17,7 +17,7 @@ Slightly more detailed explanation:
     * loads and runs a slax script
       * slax script cleans up space
       * slax script installs our preferred OS version
-* device boots new OS
+* device boots into new OS
 * slax script runs again and
   * finds everything ok
   * re-enables ZTP
