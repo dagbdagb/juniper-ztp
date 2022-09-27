@@ -19,15 +19,15 @@ Slightly more detailed explanation below:
     * loads and runs a slax script
       * slax script cleans up space
       * slax script installs our preferred OS version
-* device boots into new OS
+* second boot: device boots into new OS
 * slax script runs again and
   * finds everything ok
   * re-enables ZTP
   * sets a custom DHCP vendor id on interface me0
   * disables execution of slax script
-* DHCP catches custom DHCP vendor id and provides our default config *only* for deployment
+* DHCP server catches custom DHCP vendor-id from client and provides our preferred config *only* for deployment
 * device applies config
-* operator verifies that device runs required os version and config
+* operator returns and verifies that device runs required OS version and deployment config
 * operator shuts down device and ships it for deployment
 
 
