@@ -1,6 +1,6 @@
 ## ZTP upgrading Juniper EX2300 and EX3400 
 
-The purpose of this repo is to enable ZTP-installing Junos on EX2300/EX3400, even when installation fails due to lack of space. The process requires no input from the operator. (I have not automated the final shutdown, as I like to perform a manual sanity check.)
+The purpose of this repo is to enable ZTP-installing Junos on EX2300/EX3400, even when regular ZTP (or manual installation) fails due to lack of space on flash. The process requires no input from the operator. (Almost, I have not automated the final shutdown, as I like to perform a manual sanity check.)
 
 The way it is done, is to use the out-of-box ZTP functionality to load a custom *configuration* file *only*. (I.e. not a Junos upgrade.) 
 
