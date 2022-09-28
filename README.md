@@ -58,6 +58,7 @@ Sample files provided in this repo.
 
 ## Troubleshooting
 
+* is the device fresh out of box? 'request system zeroize' if not
 * be patient.
   * booting Junos on EX is slow
   * the os installation takes time
@@ -71,7 +72,9 @@ Sample files provided in this repo.
 * connect to the switch console
 * watch the httpd log file
  ```httpd # tail -f /var/log/httpd/access_log```
+* if the device fails to boot, it can be reinstalled via usb or via bootloader/tftp. You need particular OS-images for this.
 
 
-## Gotchas/missing features
+## Gotchas/missing features/disclaimer
 * this script does not upgrade the PoE firmware automatically. You want to do that prior to deployment...
+* if anything breaks by following these instructions, you get to keep all the pieces. I assume no responsibility of any kind whatsoever.
