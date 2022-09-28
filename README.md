@@ -59,7 +59,9 @@ Sample files provided in this repo.
 ## Troubleshooting
 
 * be patient.
-  * the os installation takes time, and the final run of the slax scrip also does a snapshot
+  * booting Junos on EX is slow
+  * the os installation takes time
+  * the final run of the slax script also does a snapshot
 
 * run dhcpd in the foreground with flag -d. Like this:
 ```dhcp-server # /usr/sbin/dhcpd -4 -cf /etc/dhcp/dhcpd.conf -d```
