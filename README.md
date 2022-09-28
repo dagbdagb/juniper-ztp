@@ -71,3 +71,7 @@ Sample files provided in this repo.
 * connect to the switch console
 * watch the httpd log file
  ```httpd # tail -f /var/log/httpd/access_log```
+
+
+## Gotchas/missing features
+* this script does not upgrade the PoE firmware automatically. You want to do that prior to deployment...
