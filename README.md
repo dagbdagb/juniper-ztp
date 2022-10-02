@@ -4,7 +4,7 @@ The purpose of this repo is to enable ZTP-installing Junos on EX2300/EX3400, eve
 
 The way it is done, is to use the out-of-box ZTP functionality to load a custom *configuration* file *only*. (I.e. not a Junos upgrade.) 
 
-This config will in turn enable a bit of slax/op-scripting, which does the cleanup necessary to successfully upgrade Junos. After the install completes, the script runs again to check if the correct Junos version is installed. If this is the case, the script disables itself, changes the dhcp vendor-id, and re-enables ZTP. This triggers loading of our preferred deployment config.
+This config will in turn enable a bit of slax/op-scripting. First, the script does the necessary cleanup prior the Junos upgrade. Then, it kicks off the actual upgrade. After the install completes, the script runs again to check if the correct Junos version is installed. If this is the case, the script disables itself, changes the dhcp vendor-id, and re-enables ZTP. This triggers loading of our preferred deployment config.
 
 All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juniper-ztp), who (as far as I know) deserves all the glory. This fork is primarily for my own purposes and to add a bit of customization/documentation/explanation.
 
@@ -19,14 +19,15 @@ Slightly more detailed explanation below:
     * disables ZTP
     * loads and runs a slax script
       * slax script cleans up space
-      * slax script installs our preferred OS version
+      * slax script installs our preferred OS version, which in turn triggers a reboot
 * second boot: device boots into new OS
 * slax script runs again and
-  * finds everything ok
+  * finds everything ok (correct OS version is running)
+  * makes a snapshot
   * re-enables ZTP
   * sets a custom DHCP vendor id on interface me0
   * disables execution of slax script
-* DHCP server catches custom DHCP vendor-id from client and provides our preferred config *only* for deployment
+* DHCP server catches our custom DHCP vendor-id from client and provides our preferred config *only* for *deployment*
 * device applies config, which again disables ZTP (and possibly me0 if so required)
 * operator returns and verifies that device runs required OS version and deployment config
 * operator shuts down device and ships it for deployment
