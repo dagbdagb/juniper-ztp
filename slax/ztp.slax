@@ -13,7 +13,7 @@ import "/var/run/scripts/import/junos.xsl";
 param $ex2300 = "20.4R3.8";
 param $ex3400 = "20.4R3.8";
 param $ex4600 = "20.4R3.8";
-param $server = "10.255.7.254";
+param $server = "$CHANGEME;
 param $reset="no";
 
 var $CONFIG-PREFIX = "JUNOS-";
