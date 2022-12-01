@@ -37,14 +37,13 @@ Slightly more detailed explanation below:
 
 ## Prerequisites
 
-* ISC DHCP server, with custom dhcpd.conf
+* ISC DHCP server, with custom dhcpd.conf (sample provided)
 * httpd, hosting:
-  * slax enabled config
-  * your preferred final config
-  * slax script
-  * preferred OS versions to be installed
+  * slax enabled config (sample provided)
+  * your preferred final config (sample provided)
+  * slax script (provided, modify as required)
+  * preferred OS versions to be installed (via your Juniper support agreement)
 
-Sample files provided in this repo.
 
 
 ## Usage
