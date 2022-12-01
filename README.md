@@ -16,7 +16,7 @@ Slightly more detailed explanation below:
 * step aside, get coffee
 * first boot:
   * ZTP is enabled out of the box
-  * DHCP-server catches default DHCP vendor id, and provides a simplified config file *only* which 
+  * DHCP-server catches DHCP vendor id from Junos default config, and provides a simplified config file *only* which 
     * disables ZTP
     * loads and runs a slax script, which
       * cleans up space on flash
