@@ -97,7 +97,7 @@ Anyways, for now:
 ```
 root@unconfigured-ex2300-48> request system firmware upgrade poe fpc-slot 0
 root@unconfigured-ex2300-48> request system reboot in 30 
-Reboot the system in 20? [yes,no] (no) yes 
+Reboot the system in 30? [yes,no] (no) yes 
 ```
 Then *walk away* from the switch. Do nothing more until it has finished rebooting. If you have a VC (stack of multiple switches as one logical unit), do *one* PoE firmware at a time.
 * if anything breaks by following these instructions, you get to keep all the pieces. I assume no responsibility of any kind whatsoever.
