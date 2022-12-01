@@ -91,6 +91,7 @@ match / {
             var $cmd-ver = <request-package-add> { 
                 <package-name> $JUNOS-DIR _ $target-version-name;
                 <force>;
+                <no-validate>;
                 <unlink>;
                 <no-copy>;
         };
