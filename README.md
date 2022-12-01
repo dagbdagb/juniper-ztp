@@ -17,9 +17,9 @@ Slightly more detailed explanation below:
   * ZTP is enabled out of the box
   * DHCP-server catches default DHCP vendor id, and provides a simplified config file *only* which 
     * disables ZTP
-    * loads and runs a slax script
-      * slax script cleans up space
-      * slax script installs our preferred OS version, which in turn triggers a reboot
+    * loads and runs a slax script, which
+      * cleans up space on flash
+      * installs our preferred OS version, which in turn triggers a reboot
 * second boot: device boots into new OS
 * slax script runs again and
   * finds everything ok (correct OS version is running)
