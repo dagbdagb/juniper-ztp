@@ -12,6 +12,7 @@ All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juni
 Slightly more detailed explanation below:
 
 * operator connects EX2300 to power, mgmt (me0) and console
+* *if* device isn't fresh out of box: ```request system zeroize
 * operator steps away
 * first boot:
   * ZTP is enabled out of the box
