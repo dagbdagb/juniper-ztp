@@ -28,7 +28,7 @@ Slightly more detailed explanation below:
   * sets a custom DHCP vendor id on interface me0
   * disables execution of slax script
 * DHCP server catches our custom DHCP vendor-id from client and provides our preferred config *only* for *deployment*
-* device applies config, which again disables ZTP (and possibly me0 if so required)
+* device applies our deployment config, which again disables ZTP (and possibly me0 if so configured in the custom deployment config)
 * operator returns and verifies that device runs required OS version and deployment config
 * operator shuts down device and ships it for deployment
 
