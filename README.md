@@ -77,5 +77,5 @@ Sample files provided in this repo.
 
 
 ## Gotchas/missing features/disclaimer
-* this script does not upgrade the PoE firmware automatically. You want to do that prior to deployment...
+* this script does not upgrade the PoE firmware automatically. You really want to do that prior to deployment...
 * if anything breaks by following these instructions, you get to keep all the pieces. I assume no responsibility of any kind whatsoever.
