@@ -91,7 +91,7 @@ index       power     consumption   band                                Priority
 ```
 You really want to perform this upgrade prior to deployment... and I should incorporate it into the slax script. Some time. 
 
-Historically, there were at least one nasty bug related to this procedure, rendering the PoE controller dead to the point of having to RMA the entire switch. 
+Historically, there was at least one nasty bug related to this procedure, rendering the PoE controller dead to the point of having to RMA the entire switch. 
 
 Anyways, for now:
 ```
