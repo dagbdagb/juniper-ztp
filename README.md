@@ -9,7 +9,7 @@ This config will in turn enable a bit of slax/op-scripting. First, the script do
 All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juniper-ztp), who (as far as I know) deserves all the glory. This fork is primarily for my own purposes and to add a bit of customization/documentation/explanation.
 
 
-Slightly more detailed explanation below:
+## Procedure explained
 
 * operator connects EX2300 to power, mgmt (me0) and console
 * *if* device isn't fresh out of box, wait for device to complete booting. then: ```request system zeroize```
