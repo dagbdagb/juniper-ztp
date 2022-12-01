@@ -4,7 +4,7 @@ The purpose of this repo is to enable ZTP-installing Junos on EX2300/EX3400, eve
 
 The way it is done, is to use the out-of-box ZTP functionality to load a custom *configuration* file *only*. (I.e. not a Junos upgrade.) 
 
-This config will in turn enable a bit of slax/op-scripting. First, the script does the necessary cleanup prior the Junos upgrade. Then, it kicks off the actual upgrade. After the install completes, the script runs again to check if the correct Junos version is installed. If this is the case, the script disables itself, changes the dhcp vendor-id, and re-enables ZTP. This triggers loading of our preferred deployment config.
+This config will in turn enable a bit of slax/op-scripting. First, the script does the necessary cleanup prior to the Junos upgrade. Then, it kicks off the actual upgrade. After the install completes, the script runs again to check if the correct Junos version is installed. If this is the case, the script disables itself, changes the dhcp vendor-id, and re-enables ZTP. This triggers loading of our preferred deployment config.
 
 All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juniper-ztp), who (as far as I know) deserves all the glory. This fork is primarily for my own purposes and to add a bit of customization/documentation/explanation.
 
