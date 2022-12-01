@@ -10,6 +10,11 @@ ns func extension = "http://exslt.org/functions";
 ns ztp = "http://xml.juniper.net/junos/ztp";
 import "/var/run/scripts/import/junos.xsl";
 
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+* !!!!!     Any variables to change comes in this section       !!!!!
+* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+
 param $ex2300 = "20.4R3.8";
 param $ex3400 = "20.4R3.8";
 param $ex4600 = "20.4R3.8";
