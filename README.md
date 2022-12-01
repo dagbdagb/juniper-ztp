@@ -23,7 +23,7 @@ All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juni
       * installs our preferred OS version, which in turn triggers a reboot
 * second boot: device boots into new OS
 * slax script runs again and
-  * finds everything ok (correct OS version is running)
+  * finds everything ok (correct Junos version is running)
   * makes a snapshot
   * re-enables ZTP
   * sets a custom DHCP vendor id on interface me0
