@@ -77,5 +77,27 @@ Sample files provided in this repo.
 
 
 ## Gotchas/missing features/disclaimer
-* this script does not upgrade the PoE firmware automatically. You really want to do that prior to deployment...
+* this script does not upgrade the PoE firmware automatically, if required:
+```
+root@unconfigured-ex2300-48> show poe controller 
+Controller  Maximum   Power         Guard    Management   Status        Lldp
+index       power     consumption   band                                Priority 
+   0**      750W      0.00W           0W     Class        AT_MODE       Disabled
+  **New PoE software upgrade available. 
+ Use 'request system firmware upgrade poe fpc-slot <slot>' 
+ This procedure will take around 10 minutes (recommended to be performed during maintenance)
+
+{master:0}
+```
+You really want to perform this upgrade prior to deployment... and I should incorporate it into the slax script. Some time. 
+
+Historically, there were at least one nasty bug related to this procedure, rendering the PoE controller dead to the point of having to RMA the entire switch. 
+
+Anyways, for now:
+```
+root@unconfigured-ex2300-48> request system firmware upgrade poe fpc-slot 0
+root@unconfigured-ex2300-48> request system reboot in 30 
+Reboot the system in 20? [yes,no] (no) yes 
+```
+Then *walk away* from the switch. Do nothing more until it has finished rebooting. If you have a VC (stack of multiple switches as one logical unit), do *one* PoE firmware at a time.
 * if anything breaks by following these instructions, you get to keep all the pieces. I assume no responsibility of any kind whatsoever.
