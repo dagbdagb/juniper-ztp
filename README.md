@@ -12,8 +12,8 @@ All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juni
 Slightly more detailed explanation below:
 
 * operator connects EX2300 to power, mgmt (me0) and console
-* *if* device isn't fresh out of box: allow device to boot, then: ```request system zeroize```
-* operator steps away
+* *if* device isn't fresh out of box, wait for device to complete booting. then: ```request system zeroize```
+* step aside, get coffee
 * first boot:
   * ZTP is enabled out of the box
   * DHCP-server catches default DHCP vendor id, and provides a simplified config file *only* which 
