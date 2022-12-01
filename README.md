@@ -27,7 +27,7 @@ Slightly more detailed explanation below:
   * re-enables ZTP
   * sets a custom DHCP vendor id on interface me0
   * disables execution of slax script
-* DHCP server catches our custom DHCP vendor-id from client and provides our preferred config *only* for *deployment*
+* DHCP server catches our custom DHCP vendor-id from the Junos DHCP-client and provides (again, via DHCP option 43) the name and location of our custom config *only* for *deployment*
 * device applies our deployment config, which again disables ZTP (and possibly me0 if so configured in the custom deployment config)
 * operator returns and verifies that device runs required OS version and deployment config
 * operator shuts down device and ships it for deployment
