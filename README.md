@@ -94,13 +94,11 @@ index       power     consumption   band                                Priority
 ```
 You really want to perform this upgrade prior to deployment... and I should incorporate it into the slax script. Some time. 
 
-Historically, there was at least one nasty bug related to this procedure, rendering the PoE controller dead to the point of having to RMA the entire switch. 
-
-Anyways, for now:
+Historically, there was at least one nasty bug related to this procedure, rendering the PoE controller dead to the point of having to RMA the entire switch. Anyways, for now:
 ```
 root@unconfigured-ex2300-48> request system firmware upgrade poe fpc-slot 0
 root@unconfigured-ex2300-48> request system reboot in 30 
 Reboot the system in 30? [yes,no] (no) yes 
 ```
-Then *walk away* from the switch. Do nothing more until it has finished rebooting. If you have a VC (stack of multiple switches as one logical unit), do *one* PoE firmware at a time.
+Then *walk away* from the switch. Do nothing more on that device until it has finished rebooting. If you have a VC (stack of multiple switches as one logical unit), do *one* PoE firmware at a time.
 * if anything breaks by following these instructions, you get to keep all the pieces. I assume no responsibility of any kind whatsoever.
