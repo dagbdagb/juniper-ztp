@@ -2,9 +2,9 @@
 
 The purpose of this repo is to enable ZTP-installing Junos on EX2300/EX3400, even when regular ZTP (or manual installation) fails due to lack of space on flash. The process requires no input from the operator. (Almost, I have not automated the final shutdown, as I like to perform a manual sanity check.)
 
-The way it is done, is to use the out-of-box ZTP functionality to load a custom *configuration* file **only**. (I.e. not a Junos upgrade.) 
+The way it is done, is to use the out-of-box ZTP functionality to load an intermediate *configuration* file **only**. (I.e. not a Junos upgrade.) 
 
-This config will in turn enable a bit of slax/op-scripting. First, the script does the necessary cleanup prior to the Junos upgrade. Then, it kicks off the actual upgrade. After the install completes, the script runs again to check if the correct Junos version is installed. If this is the case, the script disables itself, changes the dhcp vendor-id, and re-enables ZTP. This triggers loading of our preferred deployment config.
+This intermediate config will in turn enable a bit of slax/op-scripting. First, the script does the necessary cleanup prior to the Junos upgrade. Then, it kicks off the actual upgrade. After the install completes, the script runs again to check if the correct Junos version is installed. If this is the case, the script disables itself, changes the DHCP vendor-id, and re-enables ZTP. This triggers loading of our preferred deployment config.
 
 All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juniper-ztp), who (as far as I know) deserves all the glory. This fork is primarily for my own purposes and to add a bit of customization/documentation/explanation.
 
@@ -15,8 +15,8 @@ All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juni
 * *if* device isn't fresh out of box, wait for device to complete booting. then:  ```request system zeroize```
 * step aside, get coffee
 * first boot:
-  * ZTP is enabled out of the box
-  * DHCP-server catches DHCP vendor id from Junos default config, and provides a simplified config file *only* which 
+  * ZTP is enabled out of the box. (This implies that the switch will accept DHCP option 43 for updating config and software.)
+  * DHCP-server catches DHCP vendor-id from Junos default config, and provides a simplified intermediate config file *only* which 
     * disables ZTP
     * sets the correct date via NTP
     * loads and runs a slax script, which
@@ -27,18 +27,18 @@ All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juni
   * finds everything ok (correct Junos version is running)
   * makes a snapshot
   * re-enables ZTP
-  * sets a custom DHCP vendor id on interface me0
+  * sets a custom DHCP vendor-id on interface me0
   * disables execution of slax script
-* DHCP server catches our custom DHCP vendor-id from the Junos DHCP-client and provides (again, via DHCP option 43) the name and location of our custom config *only* for **deployment**
+* DHCP-server catches our custom DHCP vendor-id from the Junos DHCP-client and provides (again, via DHCP option 43) the name and location of our custom config *only* for **deployment**
 * device applies our deployment config, which again disables ZTP (and possibly me0 if so configured in the custom deployment config)
-* operator returns from the extended coffee-break, and verifies that the switch runs the required OS version and custom deployment config
+* operator returns from the extended coffee-break, and verifies that the switch runs the required Junos version and custom deployment config
 * operator performs any finishing touches, shuts down device and ships it for deployment
 
 
 
 ## Prerequisites
 
-* ISC DHCP server, with custom dhcpd.conf (sample provided)
+* ISC DHCP-server, with custom dhcpd.conf (sample provided)
 * httpd, hosting:
   * slax enabled config (sample provided)
   * your preferred final config (sample provided)
