@@ -60,11 +60,11 @@ All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juni
 
 ## Troubleshooting
 
-* is the device fresh out of box? 'request system zeroize' if not
+* is the device fresh out of box? ```request system zeroize``` if not
 * ensure that the intermediate config points at a valid NTP server, so the device gets the correct date
 * be patient.
   * booting Junos on EX is slow
-  * the os installation takes time
+  * the Junos installation takes time
   * the final run of the slax script also does a snapshot
 
 * run dhcpd in the foreground with flag -d. Like this:
