@@ -1,12 +1,13 @@
 ## ZTP upgrading Juniper EX2300 and EX3400 
 
-The purpose of this repo is to enable ZTP-installing Junos on EX2300/EX3400, even when regular ZTP (or manual installation) fails due to lack of space on flash. The process requires no input from the operator. (Almost, I have not automated the final shutdown, as I like to perform a manual sanity check.)
-
+The purpose of this repo is to enable ZTP-installing Junos on EX2300/EX3400, even when regular ZTP (or manual installation) fails due to lack of space on flash. The process requires no input from the operator. *)
 The way it is done, is to use the out-of-box ZTP functionality to load an intermediate *configuration* file **only**. (I.e. not a Junos upgrade.) 
 
 This intermediate config will in turn enable a bit of slax/op-scripting. First, the script does the necessary cleanup prior to the Junos upgrade. Then, it kicks off the actual upgrade. After the install completes, the script runs again to check if the correct Junos version is installed. If this is the case, the script disables itself, changes the DHCP vendor-id, and re-enables ZTP. This triggers loading of our preferred deployment config.
 
 All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juniper-ztp), who (as far as I know) deserves all the glory. This fork is primarily for my own purposes and to add a bit of customization/documentation/explanation.
+
+*) Almost, I have not automated the final shutdown, as I like to perform a manual sanity check.
 
 
 ## Procedure explained
