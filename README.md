@@ -12,7 +12,7 @@ All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juni
 ## Procedure explained
 
 * operator connects EX2300 to power, mgmt (me0) and console
-* *if* device isn't fresh out of box, wait for device to complete booting. then: ```request system zeroize```
+* *if* device isn't fresh out of box, wait for device to complete booting. then:  ```request system zeroize```
 * step aside, get coffee
 * first boot:
   * ZTP is enabled out of the box
@@ -79,8 +79,9 @@ All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juni
 
 
 ## Gotchas/missing features/disclaimer
-* ensure that the switch has the correct date or is able to talk to the NTP server  ```set date ntp 1.2.3.4
+* ensure that the switch has the correct date or is able to talk to the NTP server  ```set date ntp 1.2.3.4```
 * this script does not upgrade the PoE firmware automatically, if required:
+```
 root@unconfigured-ex2300-48> show poe controller 
 Controller  Maximum   Power         Guard    Management   Status        Lldp
 index       power     consumption   band                                Priority 
