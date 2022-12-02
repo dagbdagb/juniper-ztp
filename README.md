@@ -18,6 +18,7 @@ All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juni
   * ZTP is enabled out of the box
   * DHCP-server catches DHCP vendor id from Junos default config, and provides a simplified config file *only* which 
     * disables ZTP
+    * sets the correct date
     * loads and runs a slax script, which
       * cleans up space on flash
       * installs our preferred OS version, which in turn triggers a reboot
@@ -60,6 +61,7 @@ All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juni
 ## Troubleshooting
 
 * is the device fresh out of box? 'request system zeroize' if not
+* ensure that the intermediate config points at a valid NTP server, so the device gets the correct date
 * be patient.
   * booting Junos on EX is slow
   * the os installation takes time
@@ -77,6 +79,8 @@ All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juni
 
 
 ## Gotchas/missing features/disclaimer
+* ensure that the switch has the correct date or is able to talk to the NTP server
+  * ```set date ntp 1.2.3.4
 * this script does not upgrade the PoE firmware automatically, if required:
 ```
 root@unconfigured-ex2300-48> show poe controller 
