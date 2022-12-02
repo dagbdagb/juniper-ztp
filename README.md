@@ -31,8 +31,8 @@ All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juni
   * disables execution of slax script
 * DHCP server catches our custom DHCP vendor-id from the Junos DHCP-client and provides (again, via DHCP option 43) the name and location of our custom config *only* for *deployment*
 * device applies our deployment config, which again disables ZTP (and possibly me0 if so configured in the custom deployment config)
-* operator returns and verifies that device runs required OS version and deployment config
-* operator shuts down device and ships it for deployment
+* operator returns from the extended coffee-break, and verifies that the switch runs the required OS version and custom deployment config
+* operator performs any finishing touches, shuts down device and ships it for deployment
 
 
 
