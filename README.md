@@ -18,7 +18,7 @@ All the heavy lifting performed by [kquilliam](https://github.com/kquilliam/juni
   * ZTP is enabled out of the box
   * DHCP-server catches DHCP vendor id from Junos default config, and provides a simplified config file *only* which 
     * disables ZTP
-    * sets the correct date
+    * sets the correct date via NTP
     * loads and runs a slax script, which
       * cleans up space on flash
       * installs our preferred OS version, which in turn triggers a reboot
